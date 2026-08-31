@@ -5,125 +5,168 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Applied Math/Mathbio Journal Club - USU</title>
 <style>
-  body{margin:0;background:#fff;font-family:sans-serif;font-size:15px;line-height:1.6;color:#202122}
-  .page{max-width:1200px;margin:0 auto;background:#fff;padding:1.5em 3em 2em}
-  a{color:#0645ad;text-decoration:none}
+  /* MediaWiki (Vector 2022) inspired styling */
+  html{background:#f8f9fa}
+  body{margin:0;font-family:'Helvetica Neue',Helvetica,Arial,sans-serif;font-size:14px;line-height:1.65;color:#202122}
+  .page{max-width:1100px;margin:1.5em auto;background:#fff;border:1px solid #a7d7f9;border-radius:2px;padding:1.5em 2.5em 2.5em}
+  a{color:#3366cc;text-decoration:none}
   a:hover{text-decoration:underline}
-  .site{font-size:.8em;color:#54595d;border-bottom:1px solid #a2a9b1;padding-bottom:.4em;margin-bottom:.8em}
+  a:visited{color:#795cb2}
+  .site{font-size:.85em;color:#54595d;padding-bottom:.5em;margin-bottom:.6em}
   .site a{color:#54595d}
-  h1,h2{font-family:'Linux Libertine',Georgia,'Times New Roman',serif;font-weight:normal;border-bottom:1px solid #a2a9b1;margin:0 0 .3em;padding:0}
-  h1{font-size:1.9em}
-  h2{font-size:1.5em;margin-top:1.2em}
-  h3{font-size:1.15em;margin:1em 0 .3em}
-  ul{margin:.3em 0 0 1.6em;padding:0}
-  table.wikitable{border:1px solid #a2a9b1;border-collapse:collapse;background:#f8f9fa;margin:1em 0;width:100%}
-  .wikitable th,.wikitable td{border:1px solid #a2a9b1;padding:.3em .5em;vertical-align:top}
-  .wikitable th{background:#eaecf0;text-align:left}
-  .wikitable td.date{white-space:nowrap}
-  .abstract{margin:1em 0 1.5em}
-  .abstract .sp{font-weight:bold}
-  .abstract .ti{font-style:italic}
-  .toc{display:inline-block;background:#f8f9fa;border:1px solid #a2a9b1;padding:.5em 1em;margin:1em 0;font-size:.95em}
-  .toc b{display:block;text-align:center;margin-bottom:.3em}
+  .site a:hover{color:#3366cc}
+
+  h1,h2{font-family:'Linux Libertine','Georgia','Times New Roman',serif;font-weight:normal;color:#000;border-bottom:1px solid #a2a9b1;margin:0 0 .25em;padding-bottom:.17em}
+  h1{font-size:1.95em;line-height:1.3}
+  h2{font-size:1.5em;margin-top:1.4em}
+  h3{font-size:1.15em;font-weight:bold;margin:1em 0 .3em;border:none}
+  .subtitle{font-size:.9em;color:#54595d;margin-bottom:1.2em}
+
+  ul{margin:.3em 0 .5em 1.6em;padding:0}
+  li{margin-bottom:.1em}
+
+  /* infobox-style detail panel */
+  .infobox{float:right;clear:right;width:19em;margin:0 0 1em 1.5em;background:#f8f9fa;border:1px solid #a2a9b1;font-size:.92em;line-height:1.5;padding:.4em .6em .6em}
+  .infobox .ib-title{font-weight:bold;text-align:center;padding:.3em 0 .4em;font-size:1.05em}
+  .infobox table{border-collapse:collapse;width:100%}
+  .infobox th{text-align:left;vertical-align:top;padding:.25em .6em .25em 0;white-space:nowrap;font-weight:bold}
+  .infobox td{vertical-align:top;padding:.25em 0}
+  .placeholder{color:#a55858;font-style:italic}
+
+  /* TOC */
+  .toc{display:table;background:#f8f9fa;border:1px solid #a2a9b1;padding:.5em 1.2em .6em 1em;margin:1em 0;font-size:.95em}
+  .toc .toctitle{text-align:center;font-weight:bold;margin-bottom:.2em}
   .toc ul{list-style:none;margin:0;padding:0}
-  .toc ul ul{margin-left:1.5em}
-  .footer{font-size:.8em;color:#54595d;margin-top:2em;border-top:1px solid #a2a9b1;padding-top:.5em}
-  @media (max-width:600px){.page{padding:1em}}
+  .toc ul ul{margin-left:1.6em}
+  .toc .tocnumber{color:#202122;padding-right:.5em}
+
+  /* wikitable */
+  table.wikitable{border:1px solid #a2a9b1;border-collapse:collapse;background:#f8f9fa;margin:1em 0;width:100%;font-size:.95em}
+  .wikitable th,.wikitable td{border:1px solid #a2a9b1;padding:.35em .6em;vertical-align:top}
+  .wikitable th{background:#eaecf0;text-align:left}
+  .wikitable tr:nth-child(even) td{background:#fdfdfd}
+  .wikitable td.date{white-space:nowrap}
+  .wikitable td.note{font-style:italic;color:#54595d}
+  .wikitable tr.special td{background:#fef6e7}
+
+  /* abstracts */
+  .abstract{margin:1em 0 1.6em;padding-left:.9em;border-left:3px solid #eaecf0}
+  .abstract .sp{font-weight:bold}
+  .abstract .ti{font-style:italic;color:#404244}
+  .abstract p{margin:.4em 0 0}
+
+  /* hatnote */
+  .hatnote{font-style:italic;color:#54595d;font-size:.92em;padding-left:1.6em;margin:.3em 0 .8em}
+
+  .footer{font-size:.85em;color:#54595d;margin-top:2.5em;border-top:1px solid #a2a9b1;padding-top:.6em}
+  .clear{clear:both}
+  @media (max-width:720px){
+    .page{padding:1em;margin:0;border:none}
+    .infobox{float:none;width:auto;margin:0 0 1em}
+  }
 </style>
 </head>
 <body>
 <div class="page">
 
-<div class="site"><a href="https://www.usu.edu/math/">Department of Mathematics and Statistics</a> · Utah State University</div>
+<div class="site"><a href="https://www.usu.edu/math/">Department of Mathematics and Statistics</a> &middot; Utah State University</div>
 
 <h1>Applied Math/Mathbio Journal Club</h1>
+<div class="subtitle">Weekly seminar on applied mathematics and mathematical biology &mdash; Fall 2026</div>
 
-<ul>
-  <li><b>When:</b> Thursdays at 2:30 pm (except as otherwise indicated)</li>
-  <li><b>Where:</b> To be determined</li>
-  <li><b>Organizer:</b> To be determined</li>
-  <li><b>To join the ACMS mailing list:</b> send mail to <a href="mailto:acms-join@usu.edu">acms-join@usu.edu</a>.</li>
-  <li><b>To give a talk:</b> email <a href="mailto:changhong.mou@usu.edu">changhong.mou@usu.edu</a> with a title and possible dates.</li>
-</ul>
+<div class="infobox">
+  <div class="ib-title">Seminar details</div>
+  <table>
+    <tr><th>When</th><td>Wednesdays, 1:00&ndash;2:00 pm (except as otherwise indicated)</td></tr>
+    <tr><th>Where</th><td>Old Main 340 (conference room)</td></tr>
+    <tr><th>Organizer</th><td><span class="placeholder">TBD</span></td></tr>
+    <tr><th>Mailing list</th><td>Email <a href="mailto:changhong.mou@usu.edu">changhong.mou@usu.edu</a> to be added to the mailing list</td></tr>
+    <tr><th>Give a talk</th><td>Email <a href="mailto:changhong.mou@usu.edu">changhong.mou@usu.edu</a> with a title and possible dates</td></tr>
+  </table>
+</div>
 
 <div class="toc">
-  <b>Contents</b>
+  <div class="toctitle">Contents</div>
   <ul>
-    <li>1 <a href="#fall2026">Fall 2026</a></li>
-    <li>2 <a href="#abstracts">Abstracts</a></li>
-    <li>3 <a href="#future">Future semesters</a></li>
-    <li>4 <a href="#archive">Archived semesters</a></li>
+    <li><span class="tocnumber">1</span><a href="#fall2026">Fall 2026 schedule</a></li>
+    <li><span class="tocnumber">2</span><a href="#abstracts">Abstracts</a></li>
+    <li><span class="tocnumber">3</span><a href="#future">Future semesters</a></li>
+    <li><span class="tocnumber">4</span><a href="#archive">Archived semesters</a></li>
   </ul>
 </div>
 
-<h2 id="fall2026">Fall 2026</h2>
+<div class="clear"></div>
+
+<h2 id="fall2026">Fall 2026 schedule</h2>
+<div class="hatnote">All meetings are on Wednesdays, 1:00&ndash;2:00 pm, in Old Main 340 unless otherwise noted.</div>
 
 <table class="wikitable">
-  <tr><th>Date</th><th>Speaker</th><th>Title</th><th>Host</th></tr>
-  <tr><td class="date">Sep 17</td><td>TBA</td><td><a href="#abs-sep17">TBA</a></td><td></td></tr>
-  <tr><td class="date">Sep 24</td><td>TBA</td><td><a href="#abs-sep24">TBA</a></td><td></td></tr>
-  <tr><td class="date">Oct 1</td><td>TBA</td><td><a href="#abs-oct01">TBA</a></td><td></td></tr>
-  <tr><td class="date">Oct 8</td><td>TBA</td><td><a href="#abs-oct08">TBA</a></td><td></td></tr>
-  <tr><td class="date">Oct 22</td><td>TBA</td><td><a href="#abs-oct22">TBA</a></td><td></td></tr>
-  <tr><td class="date">Oct 29</td><td>TBA</td><td><a href="#abs-oct29">TBA</a></td><td></td></tr>
-  <tr><td class="date">Nov 5</td><td>TBA</td><td><a href="#abs-nov05">TBA</a></td><td></td></tr>
-  <tr><td class="date">Nov 19</td><td>TBA</td><td><a href="#abs-nov19">TBA</a></td><td></td></tr>
-  <tr><td class="date">Nov 26</td><td colspan="3"><i>No seminar (Thanksgiving break)</i></td></tr>
-  <tr><td class="date">Dec 3</td><td>TBA</td><td><a href="#abs-dec03">TBA</a></td><td></td></tr>
+  <tr><th style="width:7em">Date</th><th style="width:16em">Speaker</th><th>Title</th><th style="width:10em">Host</th></tr>
+  <tr class="special"><td class="date">Sep 2</td><td colspan="3"><b>Welcome meeting</b> &mdash; introductions, semester planning, and scheduling of talks. All are welcome.</td></tr>
+  <tr><td class="date">Sep 16</td><td>TBA</td><td><a href="#abs-sep16">TBA</a></td><td></td></tr>
+  <tr><td class="date">Sep 23</td><td>TBA</td><td><a href="#abs-sep23">TBA</a></td><td></td></tr>
+  <tr><td class="date">Sep 30</td><td>TBA</td><td><a href="#abs-sep30">TBA</a></td><td></td></tr>
+  <tr><td class="date">Oct 7</td><td>TBA</td><td><a href="#abs-oct07">TBA</a></td><td></td></tr>
+  <tr><td class="date">Oct 21</td><td>TBA</td><td><a href="#abs-oct21">TBA</a></td><td></td></tr>
+  <tr><td class="date">Oct 28</td><td>TBA</td><td><a href="#abs-oct28">TBA</a></td><td></td></tr>
+  <tr><td class="date">Nov 4</td><td>TBA</td><td><a href="#abs-nov04">TBA</a></td><td></td></tr>
+  <tr><td class="date">Nov 18</td><td>TBA</td><td><a href="#abs-nov18">TBA</a></td><td></td></tr>
+  <tr><td class="date">Nov 25</td><td colspan="3" class="note">No seminar (Thanksgiving break)</td></tr>
+  <tr><td class="date">Dec 2</td><td>TBA</td><td><a href="#abs-dec02">TBA</a></td><td></td></tr>
 </table>
 
 <h2 id="abstracts">Abstracts</h2>
 
-<div class="abstract" id="abs-sep17">
-  <div class="sp">Sep 17: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-sep16">
+  <div class="sp">Sep 16: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-sep24">
-  <div class="sp">Sep 24: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-sep23">
+  <div class="sp">Sep 23: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-oct01">
-  <div class="sp">Oct 1: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-sep30">
+  <div class="sp">Sep 30: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-oct08">
-  <div class="sp">Oct 8: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-oct07">
+  <div class="sp">Oct 7: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-oct22">
-  <div class="sp">Oct 22: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-oct21">
+  <div class="sp">Oct 21: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-oct29">
-  <div class="sp">Oct 29: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-oct28">
+  <div class="sp">Oct 28: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-nov05">
-  <div class="sp">Nov 5: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-nov04">
+  <div class="sp">Nov 4: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-nov19">
-  <div class="sp">Nov 19: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-nov18">
+  <div class="sp">Nov 18: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
 
-<div class="abstract" id="abs-dec03">
-  <div class="sp">Dec 3: Speaker Name (Affiliation)</div>
+<div class="abstract" id="abs-dec02">
+  <div class="sp">Dec 2: Speaker Name (Affiliation)</div>
   <div class="ti">Talk title goes here</div>
   <p>Abstract text goes here.</p>
 </div>
